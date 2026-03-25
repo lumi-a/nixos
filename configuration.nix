@@ -106,6 +106,7 @@
     librewolf
     gh
     signal-desktop
+    ghostty
   ];
   
   programs.fish.enable = true;
