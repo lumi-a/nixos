@@ -105,6 +105,7 @@
     fd
     librewolf
     gh
+    signal-desktop
   ];
   
   programs.fish.enable = true;
