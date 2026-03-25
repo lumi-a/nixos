@@ -63,8 +63,13 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  
+  # Fingerprint sensor
+  # Run `fprintd-enroll $USER` a few times.
   services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services.polkit-1.fprintAuth = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
