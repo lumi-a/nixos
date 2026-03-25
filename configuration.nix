@@ -48,6 +48,9 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany # Remove web browser
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
