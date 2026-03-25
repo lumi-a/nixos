@@ -107,6 +107,7 @@
     gh
     signal-desktop
     ghostty
+    prismlauncher
   ];
   
   programs.fish.enable = true;
