@@ -12,7 +12,6 @@
     git
     ripgrep
     fd
-    bat
     dust
     # for your future consideration
     # https://github.com/phiresky/ripgrep-all
@@ -54,6 +53,13 @@
     git = {
       enable = true;
       diffToolMode = true;
+    };
+  };
+  
+  programs.bat = {
+    enable = true;
+    config = {
+      style = "grid,header";
     };
   };
   
