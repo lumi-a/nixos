@@ -16,6 +16,8 @@
     eza
     fzf
     xclip
+    bat
+    dust
     
     # apps
     librewolf
