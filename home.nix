@@ -35,8 +35,10 @@
   
   programs.git = {
     enable = true;
-    userName = "lumi";
-    userEmail = "151774547+lumi-a@users.noreply.github.com";
+    settings.user = {
+        name = "lumi";
+        email = "151774547+lumi-a@users.noreply.github.com";
+    };
   };
   
   programs.gh = {
