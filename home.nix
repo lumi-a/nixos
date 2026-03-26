@@ -15,7 +15,6 @@
     gh
     eza
     fzf
-    xclip
     bat
     dust
     
