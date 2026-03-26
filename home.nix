@@ -20,6 +20,7 @@
     # jj
     # fzf stuff
     # anything old in profile.ps1
+    # yazi
     
     
     # apps
@@ -40,6 +41,11 @@
   };
   
   programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+  
+  programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
   };
