@@ -18,6 +18,8 @@
     bat
     dust
     difftastic
+    # for your future consideration
+    # https://github.com/phiresky/ripgrep-all
     
     # apps
     librewolf
@@ -34,6 +36,11 @@
       # Enable a plugin (here grc for colorized command output) from nixpkgs
       # { name = "grc"; src = pkgs.fishPlugins.grc.src; }
     ];
+  };
+  
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
   };
   
   programs.eza = {
