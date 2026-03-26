@@ -12,6 +12,13 @@
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
     ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "FiraGO" ];
+        sansSerif = [ "FiraGO" ];
+        monospace = [ "FiraCode Nerd Font" ];
+      };
+    };
   };
 }
 
