@@ -9,9 +9,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }: {
-    nixosConfigurations.nixos-t14 = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager }@inputs: {
+    nixosConfigurations.t14 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs; # this passes down the inputs
+      };
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
