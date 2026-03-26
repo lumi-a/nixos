@@ -12,12 +12,8 @@
     git
     ripgrep
     fd
-    gh
-    eza
-    fzf
     bat
     dust
-    difftastic
     # for your future consideration
     # https://github.com/phiresky/ripgrep-all
     
