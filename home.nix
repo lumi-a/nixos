@@ -35,6 +35,12 @@
     ];
   };
   
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+    extraOptions = [ "--hyperlink" "--icons" "--group-directories-first" ];
+  };
+  
   programs.git = {
     enable = true;
     settings.user = {
