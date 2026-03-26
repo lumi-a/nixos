@@ -17,6 +17,7 @@
     fzf
     bat
     dust
+    difftastic
     
     # apps
     librewolf
@@ -39,6 +40,14 @@
     enable = true;
     enableFishIntegration = true;
     extraOptions = [ "--hyperlink" "--icons" "--group-directories-first" ];
+  };
+  
+  programs.difftastic = {
+    enable = true;
+    git = {
+      enable = true;
+      diffToolMode = true;
+    };
   };
   
   programs.git = {
