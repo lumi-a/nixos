@@ -13,6 +13,8 @@
     ripgrep
     fd
     dust
+    kalker
+    sd
     # for your future consideration
     # https://github.com/phiresky/ripgrep-all
     # jj
