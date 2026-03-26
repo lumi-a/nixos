@@ -15,6 +15,7 @@
     gh
     eza
     fzf
+    xclip
     
     # apps
     librewolf
