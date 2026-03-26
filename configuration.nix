@@ -121,19 +121,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    tldr
-    git
-    ripgrep
-    fd
-    librewolf
-    gh
-    signal-desktop
-    ghostty
-    prismlauncher
+    
   ];
-  
-  programs.fish.enable = true;
-  users.users.lumi.shell = pkgs.fish;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

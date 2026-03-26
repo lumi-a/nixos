@@ -21,6 +21,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.lumi = import ./home.nix;
+          home-manager.extraSpecialArgs = inputs;
         }
       ];
     };
