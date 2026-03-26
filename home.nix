@@ -16,6 +16,10 @@
     dust
     # for your future consideration
     # https://github.com/phiresky/ripgrep-all
+    # jj
+    # fzf stuff
+    # anything old in profile.ps1
+    
     
     # apps
     librewolf
