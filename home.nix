@@ -7,7 +7,6 @@
   
   home.packages = with pkgs; [
     # clis
-    ghostty
     tldr
     git
     ripgrep
@@ -27,6 +26,23 @@
     signal-desktop
     prismlauncher
   ];
+  
+  programs.ghostty = {
+    enable = true;
+    enableFishIntegration = true;
+    programs.ghostty.installBatSyntax = true; # Not sure what this does, but can it be bad?
+    settings = {
+      font-family = "FiraCode Nerd Font";
+      keybind = [
+        "performable:ctrl+v=paste_from_clipboard"
+        "performable:ctrl+c=copy_to_clipboard"
+        "ctrl+t=new_tab"
+        "ctrl+w=close_surface"
+        "ctrl+n=new_window"
+      ];
+      quit-after-last-window-closed = false;
+    };
+  };
   
   programs.fish = {
     enable = true;
