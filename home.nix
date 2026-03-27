@@ -2,9 +2,6 @@
   home.username = "lumi";
   home.homeDirectory = "/home/lumi";
   home.stateVersion = "25.11";
-  
-  programs.home-manager.enable = true;
-  
   home.packages = with pkgs; [
     # clis
     tldr
@@ -27,76 +24,81 @@
     prismlauncher
   ];
   
-  programs.ghostty = {
-    enable = true;
-    enableFishIntegration = true;
-    programs.ghostty.installBatSyntax = true; # Not sure what this does, but can it be bad?
-    settings = {
-      font-family = "FiraCode Nerd Font";
-      keybind = [
-        "performable:ctrl+v=paste_from_clipboard"
-        "performable:ctrl+c=copy_to_clipboard"
-        "ctrl+t=new_tab"
-        "ctrl+w=close_surface"
-        "ctrl+n=new_window"
-      ];
-      quit-after-last-window-closed = false;
+
+  programs = {
+    home-manager.enable = true;
+    
+    ghostty = {
+        enable = true;
+        enableFishIntegration = true;
+        installBatSyntax = true; # Not sure what this does, but can it be bad?
+        settings = {
+            font-family = "FiraCode Nerd Font";
+            keybind = [
+                "performable:ctrl+v=paste_from_clipboard"
+                "performable:ctrl+c=copy_to_clipboard"
+                "ctrl+t=new_tab"
+                "ctrl+w=close_surface"
+                "ctrl+n=new_window"
+            ];
+            quit-after-last-window-closed = false;
+        };
     };
-  };
-  
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-    '';
-    plugins = [
-      # Enable a plugin (here grc for colorized command output) from nixpkgs
-      # { name = "grc"; src = pkgs.fishPlugins.grc.src; }
-    ];
-  };
-  
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-  
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-  
-  programs.eza = {
-    enable = true;
-    enableFishIntegration = true;
-    extraOptions = [ "--hyperlink" "--icons" "--group-directories-first" ];
-  };
-  
-  programs.difftastic = {
-    enable = true;
+    
+    fish = {
+        enable = true;
+        interactiveShellInit = ''
+            set fish_greeting # Disable greeting
+        '';
+        plugins = [
+            # Enable a plugin (here grc for colorized command output) from nixpkgs
+            # { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+        ];
+    };
+    
+    fzf = {
+        enable = true;
+        enableFishIntegration = true;
+    };
+    
+    zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+    };
+    
+    eza = {
+        enable = true;
+        enableFishIntegration = true;
+        extraOptions = [ "--hyperlink" "--icons" "--group-directories-first" ];
+    };
+    
+    difftastic = {
+        enable = true;
+        git = {
+            enable = true;
+            diffToolMode = true;
+        };
+    };
+    
+    bat = {
+        enable = true;
+        config = {
+            style = "grid,header";
+        };
+    };
+    
     git = {
-      enable = true;
-      diffToolMode = true;
+        enable = true;
+        settings.user = {
+                name = "lumi";
+                email = "151774547+lumi-a@users.noreply.github.com";
+        };
     };
-  };
-  
-  programs.bat = {
-    enable = true;
-    config = {
-      style = "grid,header";
+    
+    gh = {
+        enable = true;
+        gitCredentialHelper.enable = true;
     };
-  };
-  
-  programs.git = {
-    enable = true;
-    settings.user = {
-        name = "lumi";
-        email = "151774547+lumi-a@users.noreply.github.com";
-    };
-  };
-  
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper.enable = true;
   };
 }
 
