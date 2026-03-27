@@ -25,6 +25,7 @@
 
     # apps
     librewolf
+    brave
     signal-desktop
     prismlauncher
   ];
