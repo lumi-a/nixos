@@ -43,7 +43,7 @@
       installBatSyntax = true; # Not sure what this does, but can it be bad?
       settings = {
         font-family = "FiraCode Nerd Font";
-        font-size = "16";
+        font-size = 16;
         keybind = [
           "performable:ctrl+v=paste_from_clipboard"
           "performable:ctrl+c=copy_to_clipboard"
