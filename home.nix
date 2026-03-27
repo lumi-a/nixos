@@ -12,6 +12,7 @@
     dust
     kalker
     sd
+    nix-ld # https://wiki.nixos.org/wiki/Zed#Nix-ld_(recommended)
     # for your future consideration
     # jj
     # fzf stuff
@@ -53,15 +54,32 @@
       mutableUserSettings = false;
       mutableUserTasks = false;
       extensions = [
-        "zed"
+        "nix"
+        "toml"
+        "rust"
       ];
       userSettings = {
+        hour_format = "hour24";
+        auto_update = false;
         features = {
           copilot = false;
         };
         telemetry = {
           metrics = false;
         };
+        theme = {
+          mode = "system";
+          dark = "One Dark";
+          light = "One Light";
+        };
+        lsp = {
+          nix = {
+            binary = {
+              path_lookup = true;
+            };
+          };
+        };
+        base_keymap = "VSCode";
         vim_mode = false;
         ui_font_size = 16;
         buffer_font_size = 16;
