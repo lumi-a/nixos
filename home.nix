@@ -13,6 +13,7 @@
     kalker
     sd
     nix-ld # https://wiki.nixos.org/wiki/Zed#Nix-ld_(recommended)
+    nil # Nix language server
     # for your future consideration
     # jj
     # fzf stuff
@@ -76,6 +77,20 @@
           nix = {
             binary = {
               path_lookup = true;
+            };
+          };
+        };
+        languages = {
+          Nix = {
+            language_servers= [ "nil" "!nixd" ];
+            formatter = {
+              external = {
+                command = "nix";
+                arguments = [
+                  "fmt"
+                  "--"
+                ];
+              };
             };
           };
         };
