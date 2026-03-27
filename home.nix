@@ -115,6 +115,7 @@
         name = "lumi";
         email = "151774547+lumi-a@users.noreply.github.com";
       };
+      settings.init.defaultBranch = "main";
     };
 
     gh = {
