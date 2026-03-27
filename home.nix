@@ -19,7 +19,7 @@
     # for your future consideration
     # jj
     # fzf stuff
-    # anything old in profile.ps1
+    # ~/todo/
     # yazi
     # home-managerify librewolf
 
