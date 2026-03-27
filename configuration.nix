@@ -2,16 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # system modules
-      ./modules/fonts.nix
-    ];
- 
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    # system modules
+    ./modules/fonts.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -26,8 +30,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -68,31 +75,30 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  
+
   # Fingerprint sensor
   # Run `fprintd-enroll $USER` a few times.
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = false;
   security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
     text = ''
-    auth       required                    pam_shells.so
-    auth       requisite                   pam_nologin.so
-    auth       requisite                   pam_faillock.so      preauth
-    auth       required                    ${pkgs.fprintd}/lib/security/pam_fprintd.so
-    auth       optional                    pam_permit.so
-    auth       required                    pam_env.so
-    auth       [success=ok default=1]      ${pkgs.gdm}/lib/security/pam_gdm.so
-    auth       optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so
+      auth       required                    pam_shells.so
+      auth       requisite                   pam_nologin.so
+      auth       requisite                   pam_faillock.so      preauth
+      auth       required                    ${pkgs.fprintd}/lib/security/pam_fprintd.so
+      auth       optional                    pam_permit.so
+      auth       required                    pam_env.so
+      auth       [success=ok default=1]      ${pkgs.gdm}/lib/security/pam_gdm.so
+      auth       optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so
 
-    account    include                     login
+      account    include                     login
 
-    password   required                    pam_deny.so
+      password   required                    pam_deny.so
 
-    session    include                     login
-    session    optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so auto_start
-  '';
-};
-
+      session    include                     login
+      session    optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so auto_start
+    '';
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -103,19 +109,21 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lumi = {
     isNormalUser = true;
     description = "Lumi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
     shell = pkgs.fish;
   };
-  
+
   programs.fish.enable = true;
 
   # Allow unfree packages
@@ -124,7 +132,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
