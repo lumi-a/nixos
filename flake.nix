@@ -17,6 +17,12 @@
     }@inputs:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      templates = {
+        rust = {
+          path = ./templates/rust;
+          description = "Rust development environment";
+        };
+      };
       nixosConfigurations.t14 = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs; # this passes down the inputs
