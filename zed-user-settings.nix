@@ -21,7 +21,11 @@
   };
   auto_signature_help = true;
   auto_update = false;
-  autosave = "on_focus_change";
+  autosave = {
+    after_delay = {
+      milliseconds = 500;
+    };
+  };
   base_keymap = "VSCode";
   bottom_dock_layout = "contained";
   buffer_font_family = "FiraCode Nerd Font";
