@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     # clis
     tldr
-    git
     ripgrep
     fd
     dust
