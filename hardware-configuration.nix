@@ -24,9 +24,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
+  
+  boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/06599479-a195-4710-9380-14af26c5e24e";
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/3adff136-48e9-48ff-8186-d70402af71dd";
+    device = "/dev/disk/by-uuid/6c4ab281-8953-4651-a14c-f9a71705660e";
     fsType = "ext4";
   };
 
