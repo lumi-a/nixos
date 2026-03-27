@@ -76,7 +76,7 @@
       #   nix-instantiate --eval -E 'builtins.fromJSON (builtins.readFile /home/lumi/.config/zed/keymap.json)' | nixfmt > zed-keymap.nix
       #   https://discourse.nixos.org/t/how-to-generate-nix-source-from-json/28633/8
       # Remember to first set the following option to `true` before trying to edit settings in zed
-      mutableUserKeymaps = true;
+      mutableUserKeymaps = false;
       userKeymaps = import ./zed-keymap.nix;
     };
 
