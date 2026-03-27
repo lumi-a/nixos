@@ -61,50 +61,10 @@
         "toml"
         "rust"
       ];
-      userSettings = {
-        hour_format = "hour24";
-        auto_update = false;
-        features = {
-          copilot = false;
-        };
-        telemetry = {
-          metrics = false;
-        };
-        theme = {
-          mode = "system";
-          dark = "One Dark";
-          light = "One Light";
-        };
-        lsp = {
-          nix = {
-            binary = {
-              path_lookup = true;
-            };
-          };
-        };
-        languages = {
-          Nix = {
-            language_servers = [
-              "nil"
-              "!nixd"
-            ];
-            formatter = {
-              external = {
-                command = "nixfmt";
-                arguments = [
-                  "--quiet"
-                  "--"
-                ];
-              };
-            };
-          };
-        };
-        base_keymap = "VSCode";
-        load_direnv = "shell_hook"; # According to the wiki, this "Tell[s] Zed to use direnv and direnv can use a flake.nix environment"
-        vim_mode = false;
-        ui_font_size = 16;
-        buffer_font_size = 16;
-      };
+      # You can "auto-generate" this from the current config using:
+      #   nix-instantiate --eval -E 'builtins.fromJSON (builtins.readFile /home/lumi/.config/zed/settings.json)' | nixfmt > zed-user-settings.nix
+      # https://discourse.nixos.org/t/how-to-generate-nix-source-from-json/28633/8
+      userSettings = import ./zed-user-settings.nix;
     };
 
     fish = {
