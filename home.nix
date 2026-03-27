@@ -16,12 +16,11 @@
     kalker
     sd
     # for your future consideration
-    # https://github.com/phiresky/ripgrep-all
     # jj
     # fzf stuff
     # anything old in profile.ps1
     # yazi
-    
+    # home-managerify librewolf
     
     # apps
     librewolf
