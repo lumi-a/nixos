@@ -14,6 +14,8 @@
     sd
     nix-ld # https://wiki.nixos.org/wiki/Zed#Nix-ld_(recommended)
     nil # Nix language server
+    nixfmt
+
     # for your future consideration
     # jj
     # fzf stuff
@@ -82,12 +84,15 @@
         };
         languages = {
           Nix = {
-            language_servers= [ "nil" "!nixd" ];
+            language_servers = [
+              "nil"
+              "!nixd"
+            ];
             formatter = {
               external = {
-                command = "nix";
+                command = "nixfmt";
                 arguments = [
-                  "fmt"
+                  "--quiet"
                   "--"
                 ];
               };
@@ -95,6 +100,7 @@
           };
         };
         base_keymap = "VSCode";
+        load_direnv = "shell_hook"; # According to the wiki, this "Tell[s] Zed to use direnv and direnv can use a flake.nix environment"
         vim_mode = false;
         ui_font_size = 16;
         buffer_font_size = 16;
