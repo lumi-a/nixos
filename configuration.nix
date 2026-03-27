@@ -125,9 +125,11 @@
   };
 
   programs.fish.enable = true;
+  programs.nix-ld.enable = true; # https://nix.dev/guides/faq#how-to-run-non-nix-executables
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

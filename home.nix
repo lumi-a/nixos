@@ -12,7 +12,6 @@
     dust
     kalker
     sd
-    nix-ld # https://wiki.nixos.org/wiki/Zed#Nix-ld_(recommended)
     nil # Nix language server
     nixfmt
     helix
