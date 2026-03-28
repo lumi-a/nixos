@@ -81,7 +81,6 @@
     min_line_number_digits = 3;
     runnables = true;
   };
-  helix_mode = true;
   hour_format = "hour24";
   hover_popover_delay = 200;
   inlay_hints = {

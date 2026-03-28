@@ -13,7 +13,6 @@
     sd
     nil # Nix language server
     nixfmt
-    helix
     uv
 
     # for your future consideration
