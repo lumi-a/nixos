@@ -14,8 +14,10 @@
     nil # Nix language server
     nixfmt
     uv
+    pandoc
 
     # for your future consideration
+    # BACKUPS
     # jj
     # fzf stuff
     # ~/todo/
