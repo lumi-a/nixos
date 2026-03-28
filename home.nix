@@ -33,7 +33,7 @@
 
   programs = {
     home-manager.enable = true;
-    
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -86,11 +86,20 @@
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
+        tput cup $LINES 0 # Move prompt to bottom
       '';
       plugins = [
         # Enable a plugin (here grc for colorized command output) from nixpkgs
         # { name = "grc"; src = pkgs.fishPlugins.grc.src; }
       ];
+      shellAbbrs = {
+        rebuild = "sudo nixos-rebuild switch";
+      };
+    };
+
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
     };
 
     fzf = {
