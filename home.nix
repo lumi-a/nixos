@@ -16,14 +16,6 @@
     uv
     pandoc
 
-    # for your future consideration
-    # BACKUPS
-    # jj
-    # fzf stuff
-    # ~/todo/
-    # yazi
-    # home-managerify librewolf
-
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
     gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready". Will I regret this?
