@@ -24,6 +24,10 @@
     # yazi
     # home-managerify librewolf
 
+    # gnome extensions
+    gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
+    gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready". Will I regret this?
+
     # apps
     librewolf
     brave
@@ -149,6 +153,24 @@
     gh = {
       enable = true;
       gitCredentialHelper.enable = true;
+    };
+
+  };
+  dconf.settings = {
+    # By default, gnome switches between _apps_ instead of _windows_ using alt+tab.
+    # As such, if you have two librewolf windows open, you cannot switch between them using alt-tab.
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Alt><Shift>Tab" ];
+      switch-applications = [ "<Super>Tab" ];
+      switch-applications-backward = [ "<Super><Shift>Tab" ];
+    };
+
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        pkgs.gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45.extensionUuid
+        pkgs.gnomeExtensions.steal-my-focus-window.extensionUuid
+      ];
     };
   };
 }
