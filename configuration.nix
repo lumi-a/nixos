@@ -23,15 +23,17 @@
     grub = {
       enable = true;
       device = "nodev";
-      efiSupport = true;#
+      efiSupport = true;
     };
   };
-  
+
   zramSwap.enable = true;
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 16*1024; # 16 GiB
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16 GiB
+    }
+  ];
 
   networking.hostName = "t14"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -141,7 +143,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
