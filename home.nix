@@ -15,6 +15,7 @@
     nixfmt
     uv
     pandoc
+    glow
 
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
@@ -90,6 +91,21 @@
       ];
       shellAbbrs = {
         rebuild = "sudo nixos-rebuild switch";
+      };
+      functions = {
+        l = {
+          body = ''
+            if test (count $argv) -eq 0
+              ls
+            else if test -d $argv[1]
+              ls $argv
+            else if string match -q "*.md" $argv[1]
+              glow $argv
+            else
+              bat $argv
+            end
+          '';
+        };
       };
     };
 
