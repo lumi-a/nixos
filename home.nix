@@ -91,6 +91,8 @@
       ];
       shellAbbrs = {
         rebuild = "sudo nixos-rebuild switch";
+        nixrun = "nix run nixpkgs#";
+        nixshell = "nix shell nixpkgs#";
       };
       functions = {
         l = {
