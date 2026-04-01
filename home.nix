@@ -17,6 +17,7 @@
     pandoc
     glow # markdown renderer
     helix # helix text editor
+    micro # more comfortable editor than nano
 
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
@@ -29,6 +30,10 @@
     signal-desktop
     prismlauncher
   ];
+
+  home.sessionVariables = {
+    EDITOR = "micro";
+  };
 
   programs = {
     home-manager.enable = true;
