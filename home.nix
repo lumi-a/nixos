@@ -19,7 +19,8 @@
 
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
-    gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready". Will I regret this?
+    gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready".
+    gnomeExtensions.middle-click-to-close-in-overview
 
     # apps
     librewolf
@@ -180,6 +181,7 @@
       enabled-extensions = [
         pkgs.gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45.extensionUuid
         pkgs.gnomeExtensions.steal-my-focus-window.extensionUuid
+        pkgs.gnomeExtensions.middle-click-to-close-in-overview.extensionUuid
       ];
     };
   };
