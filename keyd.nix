@@ -32,12 +32,12 @@
           e = "o";
           r = "S-7"; # /
           t = "S-4"; # $
-          y = "f";
-          u = "c";
-          i = "l";
-          o = "p";
-          p = "q";
-          leftbrace = "y";
+          u = "f";
+          i = "c";
+          o = "l";
+          p = "p";
+          leftbrace = "q";
+          rightbrace = "y";
 
           # --- Home row ---
           a = "h";
@@ -45,12 +45,12 @@
           d = "e";
           f = "a";
           g = "u";
-          h = "d";
-          j = "s";
-          k = "t";
-          l = "n";
-          semicolon = "r";
-          apostrophe = "v";
+          j = "d";
+          k = "s";
+          l = "t";
+          semicolon = "n";
+          apostrophe = "r";
+          backslash = "v";
 
           # --- Bottom row ---
           "102nd" = "j";
@@ -59,11 +59,11 @@
           c = "S-9"; # )
           v = "slash"; # -
           b = "backspace";
-          n = "w";
-          m = "g";
-          comma = "m";
-          dot = "b";
-          slash = "x";
+          m = "w";
+          comma = "g";
+          dot = "m";
+          slash = "b";
+          rightshift = "x";
         };
 
         shift = {
@@ -82,11 +82,12 @@
           e = "S-0"; # =
           r = "102nd"; # <
           t = "S-slash"; # _
-          y = "S-6"; # &
-          u = "S-2"; # "
-          i = "S-comma"; # ;
-          o = "rightbrace"; # +
-          p = "G-9"; # ]
+          u = "S-6"; # &
+          i = "S-2"; # "
+          o = "S-comma"; # ;
+          p = "rightbrace"; # +
+          leftbrace = "G-9"; # ]
+          rightbrace = "noop";
 
           # --- Home row ---
           a = "4";
@@ -94,12 +95,12 @@
           d = "comma"; # ,
           f = "0";
           g = "G-7"; # {
-          h = "G-0"; # }
-          j = "1";
-          k = "dot"; # .
-          l = "3";
-          semicolon = "5";
-          apostrophe = "macro(grave space)"; # ^
+          j = "G-0"; # }
+          k = "1";
+          l = "dot"; # .
+          semicolon = "3";
+          apostrophe = "5";
+          backslash = "macro(grave space)"; # ^
 
           # --- Bottom row ---
           "102nd" = "6";
@@ -108,11 +109,11 @@
           c = "S-backslash"; # '
           v = "backslash"; # #
           b = "noop";
-          n = "S-dot"; # :
-          m = "S-rightbrace"; # *
-          comma = "S-102nd"; # >
-          dot = "9";
-          slash = "7";
+          m = "S-dot"; # :
+          comma = "S-rightbrace"; # *
+          dot = "S-102nd"; # >
+          slash = "9";
+          rightshift = "7";
         };
       };
     };
