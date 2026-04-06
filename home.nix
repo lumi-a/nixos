@@ -59,6 +59,8 @@
           "ctrl+t=new_tab"
           "ctrl+w=close_surface"
           "ctrl+n=new_window"
+          "ctrl+a=select_all"
+          "ctrl+f=start_search"
         ];
         quit-after-last-window-closed = false;
       };
