@@ -19,6 +19,9 @@
           leftcontrol = "rightmeta";
           rightalt = "overload(symbols-layer, noop)";
 
+          tab = "enter";
+          capslock = "tab";
+
           # Copilot key, see
           # https://github.com/rvaiya/keyd/issues/825#issuecomment-3979364570
           "leftmeta+leftshift" = "overload(shift, noop)";
@@ -55,7 +58,7 @@
           x = "S-8"; # (
           c = "S-9"; # )
           v = "slash"; # -
-          b = "noop";
+          b = "backspace";
           n = "w";
           m = "g";
           comma = "m";
