@@ -54,7 +54,7 @@
 
           # --- Bottom row ---
           "102nd" = "j";
-          z = "S-minus"; # ?
+          z = "G-rightbrace"; # -
           x = "S-8"; # (
           c = "S-9"; # )
           v = "slash"; # -
@@ -69,7 +69,7 @@
         shift = {
           r = "S-5"; # %
           t = "macro(G-q)"; # @
-          z = "G-rightbrace"; # ~
+          z = "S-minus"; # ?
           x = "macro(G-102nd)"; # |
           c = "macro(S-equal space)"; # `
           v = "S-grave"; # °
