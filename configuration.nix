@@ -33,19 +33,6 @@
       efiSupport = true;
     };
   };
-  # See https://github.com/NixOS/nixos-hardware/issues/1801
-  boot = {
-    kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
-    # patch from https://patchwork.freedesktop.org/patch/712133/?series=163293&rev=1
-    # to address the ryzen AI amdgpu MES ringbuffer issues causing freezes.
-    # full bug report: https://gitlab.freedesktop.org/drm/amd/-/issues/4749
-    kernelPatches = [
-      {
-        name = "amdgpu-tlb-fence-fix";
-        patch = ./amdgpu_tlb_fence.patch;
-      }
-    ];
-  };
 
   zramSwap.enable = true;
   swapDevices = [
