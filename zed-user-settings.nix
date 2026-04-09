@@ -9,6 +9,11 @@
     model_parameters = [ ];
   };
   agent_buffer_font_size = 18;
+  agent_servers = {
+    claude-acp = {
+      type = "registry";
+    };
+  };
   always_treat_brackets_as_autoclosed = false;
   audio = {
     "experimental.auto_microphone_volume" = true;
@@ -16,6 +21,7 @@
   };
   auto_install_extensions = {
     nix = true;
+    ruff = true;
     rust = true;
     toml = true;
   };
@@ -53,7 +59,6 @@
     };
   };
   diagnostics_max_severity = "off";
-  disable_ai = true;
   features = {
     copilot = false;
   };
