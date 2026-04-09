@@ -76,6 +76,12 @@
   # Enable something like DNS?
   services.resolved.enable = true;
 
+  # Keeps ssd nice and fresh
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
