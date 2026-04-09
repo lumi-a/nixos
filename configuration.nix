@@ -21,7 +21,7 @@
   # Power optimization
   services.power-profiles-daemon.enable = false; # Conflicts with tlp
   services.tlp.enable = true;
-  
+
   services.fwupd.enable = true
 
   # Bootloader.
@@ -71,7 +71,7 @@
   ];
 
   # Set your time zone.
-  services.automatic-timezoned.enable = true;
+  time.timeZone = "Europe/London";
 
   # Enable something like DNS?
   services.resolved.enable = true;
