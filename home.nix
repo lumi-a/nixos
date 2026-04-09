@@ -18,8 +18,7 @@
     glow # markdown renderer
     helix # helix text editor
     micro # more comfortable editor than nano
-    socat
-    bubblewrap
+    todoist
     vscodium
 
     # gnome extensions
@@ -106,8 +105,18 @@
       ];
       shellAbbrs = {
         rebuild = "sudo nixos-rebuild switch";
-        nixrun = "nix run nixpkgs#";
-        nixshell = "nix shell nixpkgs#";
+        nixrun = {
+          setCursor = true;
+          expansion = "nix run nixpkgs#%";
+        };
+        nixshell = {
+          setCursor = true;
+          expansion = "nix shell nixpkgs#%";
+        };
+        todo = {
+          expansion = "todoist q \"%\"";
+          setCursor = true;
+        };
       };
       functions = {
         l = {
