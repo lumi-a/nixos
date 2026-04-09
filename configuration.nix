@@ -21,6 +21,8 @@
   # Power optimization
   services.power-profiles-daemon.enable = false; # Conflicts with tlp
   services.tlp.enable = true;
+  
+  services.fwupd.enable = true
 
   # Bootloader.
   boot.loader = {
