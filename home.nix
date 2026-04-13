@@ -104,11 +104,11 @@
       ];
       shellAbbrs = {
         rebuild = "sudo nixos-rebuild switch";
-        nixrun = {
+        nxr = {
           setCursor = true;
           expansion = "nix run nixpkgs#%";
         };
-        nixshell = {
+        nxs = {
           setCursor = true;
           expansion = "nix shell nixpkgs#%";
         };
