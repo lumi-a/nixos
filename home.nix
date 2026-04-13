@@ -72,10 +72,9 @@
       extensions = [
         "nix"
         "toml"
-        #
         "rust"
-        #
         "ruff"
+        "typst"
       ];
 
       # You can "auto-generate" this from the current config using:

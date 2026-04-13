@@ -24,6 +24,7 @@
     ruff = true;
     rust = true;
     toml = true;
+    typst = true;
   };
   auto_signature_help = true;
   auto_update = false;
