@@ -116,6 +116,7 @@
           expansion = "todoist q \"%\"";
           setCursor = true;
         };
+        rip = "gio trash";
       };
       functions = {
         l = {
