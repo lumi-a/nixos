@@ -26,7 +26,7 @@
           # https://github.com/rvaiya/keyd/issues/825#issuecomment-3979364570
           "leftmeta+leftshift" = "overload(shift, noop)";
 
-          # --- Top alpha row (QWERTY positions → Bone-like layout) ---
+          # --- Top alpha row ---
           q = "k";
           w = "z";
           e = "o";
