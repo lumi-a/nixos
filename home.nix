@@ -117,6 +117,7 @@
           setCursor = true;
         };
         rip = "gio trash";
+        zed = "zeditor";
       };
       functions = {
         l = {
