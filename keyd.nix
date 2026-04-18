@@ -3,7 +3,10 @@
   services.keyd = {
     enable = true;
     keyboards.default = {
-      ids = [ "0001:0001:09b4e68d" ]; # narrow this via `keyd monitor`
+      ids = [
+        "0001:0001:09b4e68d"
+        "0002:000a:83b21bac"
+      ]; # narrow this via `keyd monitor`
       settings = {
 
         # ================================================================
@@ -12,6 +15,9 @@
         # S- = shift on DE layout. G- = AltGr on DE layout.
         # ================================================================
         main = {
+          rightmouse = "layer(special-layer)";
+          leftmouse = "backspace";
+          # middlemouse = ;
 
           # --- Thumb modifier remaps ---
           leftalt = "overload(control, noop)";
@@ -114,6 +120,12 @@
           dot = "S-102nd"; # >
           slash = "9";
           rightshift = "7";
+        };
+        special-layer = {
+          q = "up";
+          o = "right";
+          a = "left";
+          "102nd" = "down";
         };
       };
     };
