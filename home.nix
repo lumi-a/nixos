@@ -18,10 +18,10 @@
     glow # markdown renderer
     helix # helix text editor
     micro # more comfortable editor than nano
-    todoist
     vscodium
     git-absorb
-
+	discordo
+	
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
     gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready".
@@ -113,10 +113,11 @@
           setCursor = true;
           expansion = "nix shell nixpkgs#%";
         };
-        todo = {
-          expansion = "todoist q \"%\"";
+        gitc = {
+          expansion = "git commit -am \"%\"";
           setCursor = true;
         };
+        gita = "git commit -a --amend";
         rip = "gio trash";
         zed = "zeditor";
       };
