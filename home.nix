@@ -99,7 +99,7 @@
       #   nix-instantiate --eval -E 'builtins.fromJSON (builtins.readFile /home/lumi/.config/zed/settings.json)' | nixfmt > /etc/nixos/zed-user-settings.nix
       #   https://discourse.nixos.org/t/how-to-generate-nix-source-from-json/28633/8
       # Remember to first set the following option to `true` before trying to edit settings in zed
-      mutableUserSettings = true;
+      mutableUserSettings = false;
       userSettings = import ./zed-user-settings.nix { pkgs = pkgs; };
 
       # You can "auto-generate" this from the current config using:
