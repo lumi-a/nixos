@@ -85,8 +85,7 @@
     tree_view = false;
   };
   gutter = {
-    line_numbers = true;
-    min_line_number_digits = 3;
+    line_numbers = false;
     runnables = true;
   };
   hour_format = "hour24";
@@ -149,7 +148,6 @@
     };
     starts_open = false;
   };
-  relative_line_numbers = "enabled";
   rounded_selection = true;
   scrollbar = {
     axes = {
