@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   home.username = "lumi";
   home.homeDirectory = "/home/lumi";
@@ -20,7 +25,7 @@
     micro # more comfortable editor than nano
     vscodium
     git-absorb
-    discordo
+    claude-code
 
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
@@ -33,6 +38,12 @@
     signal-desktop
     prismlauncher
   ];
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
 
   home.sessionVariables = {
     EDITOR = "micro";
@@ -89,8 +100,8 @@
       #   nix-instantiate --eval -E 'builtins.fromJSON (builtins.readFile /home/lumi/.config/zed/settings.json)' | nixfmt > /etc/nixos/zed-user-settings.nix
       #   https://discourse.nixos.org/t/how-to-generate-nix-source-from-json/28633/8
       # Remember to first set the following option to `true` before trying to edit settings in zed
-      mutableUserSettings = false;
-      userSettings = import ./zed-user-settings.nix;
+      mutableUserSettings = true;
+      userSettings = import ./zed-user-settings.nix { pkgs = pkgs; };
 
       # You can "auto-generate" this from the current config using:
       #   nix-instantiate --eval -E 'builtins.fromJSON (builtins.readFile /home/lumi/.config/zed/keymap.json)' | nixfmt > /etc/nixos/zed-keymap.nix

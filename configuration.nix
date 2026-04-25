@@ -157,10 +157,6 @@
   programs.fish.enable = true;
   programs.nix-ld.enable = true; # https://nix.dev/guides/faq#how-to-run-non-nix-executables
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
@@ -183,8 +179,13 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
 
+  # List services that you want to enable:
   services.openssh = {
     enable = true;
     ports = [ 5432 ];

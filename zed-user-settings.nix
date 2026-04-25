@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   active_pane_modifiers = {
     border_size = 0;
@@ -12,6 +13,7 @@
   agent_servers = {
     claude-acp = {
       type = "registry";
+      env.CLAUDE_CODE_EXECUTABLE = "${pkgs.claude-code}/bin/claude";
     };
   };
   always_treat_brackets_as_autoclosed = false;
