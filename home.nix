@@ -21,7 +21,6 @@
     uv
     pandoc
     glow # markdown renderer
-    helix # helix text editor
     micro # more comfortable editor than nano
     vscodium
     git-absorb

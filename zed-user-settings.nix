@@ -89,7 +89,6 @@
     min_line_number_digits = 3;
     runnables = true;
   };
-  helix_mode = true;
   hour_format = "hour24";
   hover_popover_delay = 200;
   inlay_hints = {
@@ -222,10 +221,6 @@
   ui_font_family = "FiraGO";
   ui_font_size = 18;
   unnecessary_code_fade = 0.3;
-  vim = {
-    toggle_relative_line_numbers = false;
-  };
-  vim_mode = false;
   when_closing_with_no_tabs = "keep_window_open";
   which_key = {
     enabled = true;
