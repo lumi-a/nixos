@@ -188,13 +188,18 @@
   # List services that you want to enable:
   services.openssh = {
     enable = true;
-    ports = [ 5432 ];
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
       AllowUsers = [ "lumi" ];
     };
+    listenAddresses = [
+      {
+        addr = "100.76.172.108";
+        port = 5432;
+      }
+    ];
   };
   services.fail2ban.enable = true;
 
