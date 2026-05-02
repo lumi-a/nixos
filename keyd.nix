@@ -122,10 +122,12 @@
           rightshift = "7";
         };
         special-layer = {
-          q = "up";
-          o = "right";
-          a = "left";
-          "102nd" = "down";
+          k = "left";
+          o = "up";
+          l = "down";
+          ";" = "right";
+          "'" = "end";
+          j = "home";
           g = "["; # ü
           e = ";"; # ö
           f = "'"; # ä
