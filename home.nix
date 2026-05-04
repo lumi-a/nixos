@@ -53,9 +53,21 @@
     syncthing = {
       # http://localhost:8384/
       enable = true;
-      openDefaultPorts = true;
     };
   };
+
+  # Horrible way of making fira-go readable to koreader. sigh.
+  home.file.".local/share/fonts".source =
+    let
+      koreaderFonts = pkgs.symlinkJoin {
+        name = "koreader-fonts";
+        paths = with pkgs; [
+          fira-go
+          nerd-fonts.fira-code
+        ];
+      };
+    in
+    "${koreaderFonts}/share/fonts";
 
   programs = {
     home-manager.enable = true;
