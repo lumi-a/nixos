@@ -171,6 +171,14 @@
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
+  # Allow traffic so that the laptop can provide a hotspot, sharing e.g. ethernet via WLAN:
+  networking.firewall.interfaces."wlp194s0" = {
+    allowedUDPPorts = [
+      53
+      67
+    ];
+    allowedTCPPorts = [ 53 ];
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
