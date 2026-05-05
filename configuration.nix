@@ -168,7 +168,7 @@
   };
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "tailscale0" ];
+    interfaces.tailscale0.allowedTCPPorts = [ 5432 ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
   # Allow traffic so that the laptop can provide a hotspot, sharing e.g. ethernet via WLAN:
@@ -196,19 +196,16 @@
   # List services that you want to enable:
   services.openssh = {
     enable = true;
+    ports = [ 5432 ];
+    openFirewall = false;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
       AllowUsers = [ "lumi" ];
     };
-    listenAddresses = [
-      {
-        addr = "100.76.172.108";
-        port = 5432;
-      }
-    ];
   };
+
   services.fail2ban.enable = true;
 
   # Open ports in the firewall.
