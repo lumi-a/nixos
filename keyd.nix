@@ -64,7 +64,6 @@
           x = "S-8"; # (
           c = "S-9"; # )
           v = "slash"; # -
-          b = "backspace";
           m = "w";
           comma = "g";
           dot = "m";
@@ -122,6 +121,7 @@
           rightshift = "7";
         };
         special-layer = {
+          leftmouse = "delete";
           k = "left";
           o = "up";
           l = "down";
