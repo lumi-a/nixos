@@ -8,14 +8,16 @@
         "0002:000a:83b21bac"
       ]; # narrow this via `keyd monitor`
       settings = {
-
+        global = {
+          oneshot_timeout = 100;
+        };
         # ================================================================
         # MAIN LAYER
         # System layout: DE QWERTZ. Key names = physical QWERTY scancodes.
         # S- = shift on DE layout. G- = AltGr on DE layout.
         # ================================================================
         main = {
-          rightmouse = "layer(special-layer)";
+          rightmouse = "oneshot(special-layer)";
           leftmouse = "backspace";
           # middlemouse = ;
 
@@ -23,7 +25,7 @@
           leftalt = "overload(control, noop)";
           leftmeta = "overload(alt, noop)";
           leftcontrol = "rightmeta";
-          rightalt = "overload(symbols-layer, noop)";
+          rightalt = "oneshot(symbols-layer)";
 
           tab = "enter";
           capslock = "tab";
