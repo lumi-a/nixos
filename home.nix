@@ -26,6 +26,7 @@
     git-absorb
     claude-code
     koreader
+    yazi
 
     # gnome extensions
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
@@ -153,19 +154,26 @@
         zed = "zeditor";
       };
       functions = {
-        l = {
-          body = ''
-            if test (count $argv) -eq 0
-              ls
-            else if test -d $argv[1]
-              ls $argv
-            else if string match -q "*.md" $argv[1]
-              glow $argv
-            else
-              bat $argv
-            end
-          '';
-        };
+        l.body = ''
+          if test (count $argv) -eq 0
+            ls
+          else if test -d $argv[1]
+            ls $argv
+          else if string match -q "*.md" $argv[1]
+            glow $argv
+          else
+            bat $argv
+          end
+        '';
+
+        y.body = ''
+          set tmp (mktemp -t "yazi-cwd.XXXXXX")
+          command yazi $argv --cwd-file="$tmp"
+          if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+            builtin cd -- "$cwd"
+          end
+          rm -f -- "$tmp"
+        '';
       };
     };
 
