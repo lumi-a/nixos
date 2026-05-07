@@ -32,6 +32,7 @@
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
     gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready".
     gnomeExtensions.middle-click-to-close-in-overview
+    gnomeExtensions.run-or-raise # Window switcher
 
     # apps
     librewolf
@@ -152,7 +153,7 @@
         gita = "git commit -a --amend";
         rip = "gio trash";
         zed = "zeditor";
-        config = "cd /ets/nixos; zeditor /etc/nixos";
+        config = "cd /etc/nixos; zeditor /etc/nixos";
       };
       functions = {
         l.body = ''
@@ -275,6 +276,13 @@
 
   };
 
+  # Window switch hotkeys. See keyd as well.
+  xdg.configFile."run-or-raise/shortcuts.conf".text = ''
+    <Super>e,librewolf,librewolf
+    <Super>i,ghostty,ghostty
+    <Super>y,zeditor,zed
+  '';
+
   xdg.userDirs = {
     enable = true;
     createDirectories = false;
@@ -305,6 +313,7 @@
         pkgs.gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45.extensionUuid
         pkgs.gnomeExtensions.steal-my-focus-window.extensionUuid
         pkgs.gnomeExtensions.middle-click-to-close-in-overview.extensionUuid
+        pkgs.gnomeExtensions.run-or-raise.extensionUuid
       ];
     };
   };
