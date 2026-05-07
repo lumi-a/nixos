@@ -294,8 +294,7 @@
     download = config.home.homeDirectory;
     documents = config.home.homeDirectory;
     templates = config.home.homeDirectory;
-    # KEEP
-    desktop = "${config.home.homeDirectory}/Desktop";
+    desktop = config.home.homeDirectory;
   };
 
   dconf.settings = {
