@@ -232,6 +232,22 @@
     };
 
   };
+
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = false;
+    # CULL
+    pictures = config.home.homeDirectory;
+    videos = config.home.homeDirectory;
+    music = config.home.homeDirectory;
+    publicShare = config.home.homeDirectory;
+    download = config.home.homeDirectory;
+    documents = config.home.homeDirectory;
+    templates = config.home.homeDirectory;
+    # KEEP
+    desktop = "${config.home.homeDirectory}/Desktop";
+  };
+
   dconf.settings = {
     # By default, gnome switches between _apps_ instead of _windows_ using alt+tab.
     # As such, if you have two librewolf windows open, you cannot switch between them using alt-tab.
