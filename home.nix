@@ -152,6 +152,7 @@
         gita = "git commit -a --amend";
         rip = "gio trash";
         zed = "zeditor";
+        config = "cd /ets/nixos; zeditor /etc/nixos";
       };
       functions = {
         l.body = ''
