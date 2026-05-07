@@ -174,6 +174,47 @@
           end
           rm -f -- "$tmp"
         '';
+
+        check-all-repos.body = ''
+          set -l dirs $argv
+          test (count $dirs) -eq 0; and set dirs ~ /etc/nixos
+
+          fd '^\.git$' --hidden --type d --prune $dirs \
+              --exclude .cache --exclude .config --exclude .local \
+              --exclude .mozilla --exclude .var --exclude .steam\
+          | sort | while read -l gitpath
+              set -l repo (path dirname -- $gitpath)
+              set -l dirty (command git -C $repo -c color.status=false status --porcelain 2>/dev/null)
+              set -l stashed (command git -C $repo stash list 2>/dev/null | count)
+
+              set -l c_color green
+              set -l c_text "✓ No changes "
+              if test -n "$dirty"
+                  set c_color red
+                  set c_text "✗ Uncommitted"
+              end
+
+              set -l s_color green
+              set -l s_text "✓ No Stash"
+              if test $stashed -gt 0
+                  set s_color red
+                  set s_text "✗ Stashed  "
+              end
+
+              if test "$c_color" = green; and test "$s_color" = green
+                  set_color brblack
+                  echo "$c_text  $s_text  $repo"
+                  set_color normal
+              else
+                  set_color $c_color
+                  printf "%s  " $c_text
+                  set_color $s_color
+                  printf "%s  " $s_text
+                  set_color normal
+                  echo $repo
+              end
+          end
+        '';
       };
     };
 
