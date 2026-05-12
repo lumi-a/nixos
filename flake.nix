@@ -15,8 +15,26 @@
       nixpkgs,
       home-manager,
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      formatter.x86_64-linux = pkgs.nixfmt-tree;
+
+      homeConfigurations.base = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./modules/home-manager/shell.nix
+          ./modules/home-manager/git.nix
+          {
+            home.username = "lumi";
+            home.homeDirectory = "/home/lumi";
+            home.stateVersion = "25.11";
+            programs.home-manager.enable = true;
+          }
+        ];
+      };
       templates = {
         rust = {
           # Use:
