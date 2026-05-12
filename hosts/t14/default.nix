@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
@@ -11,11 +7,9 @@
 
 {
   imports = [
-    ./keyd.nix
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # system modules
-    ./modules/fonts.nix
+    ../../modules/nixos/keyd.nix
+    ../../modules/nixos/fonts.nix
   ];
 
   # Power optimization
@@ -42,14 +36,7 @@
     }
   ];
 
-  networking.hostName = "t14"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
+  networking.hostName = "t14";
   networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [
@@ -57,7 +44,6 @@
     "flakes"
   ];
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
   # Enable something like DNS?
@@ -69,7 +55,6 @@
     interval = "weekly";
   };
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -81,33 +66,27 @@
     LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "de_DE.UTF-8";
     LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8"; # mostly ISO compliant I hear
+    LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs; [
-    epiphany # Remove web browser
+    epiphany # Former web browser
   ];
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
     variant = "";
   };
 
-  # Configure console keymap
   console.keyMap = "de";
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Fingerprint sensor
-  # Run `fprintd-enroll $USER` a few times.
+  # Fingerprint sensor - run `fprintd-enroll $USER` a few times to set up.
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = false;
   security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
@@ -130,7 +109,6 @@
     '';
   };
 
-  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -140,7 +118,6 @@
     pulse.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lumi = {
     isNormalUser = true;
     description = "Lumi";
@@ -148,19 +125,13 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
     shell = pkgs.fish;
   };
 
   programs.fish.enable = true;
   programs.nix-ld.enable = true; # https://nix.dev/guides/faq#how-to-run-non-nix-executables
 
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-
-  ];
+  environment.systemPackages = with pkgs; [ ];
 
   services.tailscale = {
     enable = true;
@@ -171,7 +142,7 @@
     interfaces.tailscale0.allowedTCPPorts = [ 5432 ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
-  # Allow traffic so that the laptop can provide a hotspot, sharing e.g. ethernet via WLAN:
+  # Allow traffic for hotspot (sharing ethernet via WLAN)
   networking.firewall.interfaces."wlp194s0" = {
     allowedUDPPorts = [
       53
@@ -179,13 +150,6 @@
     ];
     allowedTCPPorts = [ 53 ];
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
@@ -193,7 +157,6 @@
       "claude-code"
     ];
 
-  # List services that you want to enable:
   services.openssh = {
     enable = true;
     ports = [ 5432 ];
@@ -205,21 +168,8 @@
       AllowUsers = [ "lumi" ];
     };
   };
-
   services.fail2ban.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
-
+  # Before changing, read https://nixos.org/nixos/options
+  system.stateVersion = "25.11";
 }

@@ -1,9 +1,7 @@
 { pkgs, ... }:
 {
   fonts = {
-    fontconfig = {
-      enable = true;
-    };
+    fontconfig.enable = true;
     packages = with pkgs; [
       noto-fonts
       noto-fonts-emoji-blob-bin
@@ -12,12 +10,10 @@
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
     ];
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "FiraGO" ];
-        sansSerif = [ "FiraGO" ];
-        monospace = [ "FiraCode Nerd Font" ];
-      };
+    fontconfig.defaultFonts = {
+      serif = [ "FiraGO" ];
+      sansSerif = [ "FiraGO" ];
+      monospace = [ "FiraCode Nerd Font" ];
     };
   };
 }

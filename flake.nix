@@ -32,12 +32,12 @@
           inherit inputs; # this passes down the inputs
         };
         modules = [
-          ./configuration.nix
+          ./hosts/t14/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.lumi = import ./home.nix;
+            home-manager.users.lumi = import ./home/lumi/default.nix;
             home-manager.extraSpecialArgs = inputs;
           }
         ];
