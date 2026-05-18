@@ -139,7 +139,10 @@
   };
   networking.firewall = {
     enable = true;
-    interfaces.tailscale0.allowedTCPPorts = [ 5432 ];
+    interfaces.tailscale0.allowedTCPPorts = [
+      5432
+      1234
+    ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
   # Allow traffic for hotspot (sharing ethernet via WLAN)
