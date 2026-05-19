@@ -33,6 +33,7 @@
   '';
 
   xdg.userDirs = {
+    setSessionVariables = false;
     enable = true;
     createDirectories = false;
     # CULL

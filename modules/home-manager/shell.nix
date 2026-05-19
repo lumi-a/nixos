@@ -53,13 +53,16 @@
         zed = "zeditor";
         config = "cd /etc/nixos; zeditor /etc/nixos";
       };
+      shellAliases = {
+        l = "l";
+      };
       functions = {
         l.body = ''
-          if test (count $argv) -eq 0
+          if test (count $argv) -eq 0 # No arguments supplied
             ls
-          else if test -d $argv[1]
+          else if test -d $argv[1] # Directory
             ls $argv
-          else if string match -q "*.md" $argv[1]
+          else if string match -q "*.md" $argv[1] # Markdown
             glow $argv
           else
             bat $argv
