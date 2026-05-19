@@ -28,7 +28,7 @@
   # Window switch hotkeys. See keyd as well.
   xdg.configFile."run-or-raise/shortcuts.conf".text = ''
     <Super>e,librewolf,librewolf
-    <Super>t,signal,signal
+    <Super>t,signal-desktop,signal
     <Super>i,ghostty,ghostty
     <Super>y,zeditor,zed
   '';
