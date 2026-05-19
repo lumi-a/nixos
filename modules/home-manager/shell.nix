@@ -53,30 +53,34 @@
         zed = "zeditor";
         config = "cd /etc/nixos; zeditor /etc/nixos";
       };
-      shellAliases = {
-        l = "l";
-      };
+      shellAliases.l = "lll";
       functions = {
-        l.body = ''
-          if test (count $argv) -eq 0 # No arguments supplied
-            ls
-          else if test -d $argv[1] # Directory
-            ls $argv
-          else if string match -q "*.md" $argv[1] # Markdown
-            glow $argv
-          else
-            bat $argv
-          end
-        '';
+        lll = {
+          body = ''
+            if test (count $argv) -eq 0 # No arguments supplied
+              ls
+            else if test -d $argv[1] # Directory
+              ls $argv
+            else if string match -q "*.md" $argv[1] # Markdown
+              glow $argv
+            else
+              bat $argv
+            end;
+          '';
+          wraps = "ls";
+        };
 
-        y.body = ''
-          set tmp (mktemp -t "yazi-cwd.XXXXXX")
-          command yazi $argv --cwd-file="$tmp"
-          if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
-            builtin cd -- "$cwd"
-          end
-          rm -f -- "$tmp"
-        '';
+        y = {
+          body = ''
+            set tmp (mktemp -t "yazi-cwd.XXXXXX")
+            command yazi $argv --cwd-file="$tmp"
+            if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+              builtin cd -- "$cwd"
+            end
+            rm -f -- "$tmp"
+          '';
+          wraps = "yazi";
+        };
 
         check-all-repos.body = ''
           set -l dirs $argv
