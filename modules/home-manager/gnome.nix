@@ -58,6 +58,40 @@
       switch-applications-backward = [ "<Super><Shift>Tab" ];
     };
 
+    "org/gnome/desktop/interface" = {
+      accent-color = "pink";
+      color-scheme = "default";
+      enable-animations = true;
+      enable-hot-corners = false;
+      text-scaling-factor = 1.25;
+    };
+
+    "org/gnome/desktop/peripherals/keyboard" = {
+      delay = 256;
+      repeat-interval = 32;
+    };
+    "org/gnome/desktop/peripherals/mouse".natural-scroll = false;
+    "org/gnome/desktop/peripherals/pointingstick" = {
+      accel-profile = "default";
+      speed = 0.0;
+    };
+
+    "org/gnome/desktop/session".idle-delay = 0;
+    "org/gnome/settings-daemon/plugins/power" = {
+      idle-dim = false;
+      sleep-inactive-ac-type = "nothing";
+      sleep-inactive-battery-timeout = 3600;
+      sleep-inactive-battery-type = "suspend";
+    };
+
+    "org/gnome/nautilus/preferences" = {
+      click-policy = "single";
+      date-time-format = "detailed";
+      default-folder-viewer = "list-view";
+    };
+
+    "org/gnome/shell/extensions/run-or-raise".switch-back-when-focused = true;
+
     "org/gnome/shell" = {
       enabled-extensions = [
         pkgs.gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45.extensionUuid
