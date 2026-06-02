@@ -56,6 +56,7 @@
       switch-windows-backward = [ "<Alt><Shift>Tab" ];
       switch-applications = [ "<Super>Tab" ];
       switch-applications-backward = [ "<Super><Shift>Tab" ];
+      close = [ "<Control>q" ];
     };
 
     "org/gnome/desktop/interface" = {
