@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   home.packages = with pkgs; [
     gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
@@ -68,8 +73,8 @@
     };
 
     "org/gnome/desktop/peripherals/keyboard" = {
-      delay = 256;
-      repeat-interval = 32;
+      delay = lib.hm.gvariant.mkUint32 256;
+      repeat-interval = lib.hm.gvariant.mkUint32 32;
     };
     "org/gnome/desktop/peripherals/mouse".natural-scroll = false;
     "org/gnome/desktop/peripherals/pointingstick" = {
@@ -77,7 +82,7 @@
       speed = 0.0;
     };
 
-    "org/gnome/desktop/session".idle-delay = 0;
+    "org/gnome/desktop/session".idle-delay = lib.hm.gvariant.mkUint32 0;
     "org/gnome/settings-daemon/plugins/power" = {
       idle-dim = false;
       sleep-inactive-ac-type = "nothing";
