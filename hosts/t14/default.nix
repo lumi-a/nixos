@@ -44,7 +44,7 @@
     "flakes"
   ];
 
-  time.timeZone = "Europe/London";
+  time.timeZone = "Europe/Berlin";
 
   # Enable something like DNS?
   services.resolved.enable = true;
