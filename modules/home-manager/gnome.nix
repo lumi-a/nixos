@@ -73,7 +73,7 @@
     };
 
     "org/gnome/desktop/peripherals/keyboard" = {
-      delay = lib.hm.gvariant.mkUint32 256;
+      delay = lib.hm.gvariant.mkUint32 192;
       repeat-interval = lib.hm.gvariant.mkUint32 32;
     };
     "org/gnome/desktop/peripherals/mouse".natural-scroll = false;
