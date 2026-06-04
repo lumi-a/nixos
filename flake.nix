@@ -47,10 +47,26 @@
       };
       nixosConfigurations.t14 = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs; # this passes down the inputs
+          inherit inputs;
         };
         modules = [
           ./hosts/t14/default.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.lumi = import ./home/lumi/default.nix;
+            home-manager.extraSpecialArgs = inputs;
+          }
+        ];
+      };
+
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/desktop/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

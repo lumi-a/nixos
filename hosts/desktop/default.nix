@@ -12,9 +12,7 @@
     ../../modules/nixos/fonts.nix
   ];
 
-  # Power optimization
-  services.power-profiles-daemon.enable = false; # Conflicts with tlp
-  services.tlp.enable = true;
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   services.fwupd.enable = true;
 
@@ -28,14 +26,8 @@
   };
 
   zramSwap.enable = true;
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 16 * 1024; # 16 GiB
-    }
-  ];
 
-  networking.hostName = "t14";
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [
@@ -85,29 +77,6 @@
 
   services.printing.enable = true;
 
-  # Fingerprint sensor - run `fprintd-enroll $USER` a few times to set up.
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = false;
-  security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
-    text = ''
-      auth       required                    pam_shells.so
-      auth       requisite                   pam_nologin.so
-      auth       requisite                   pam_faillock.so      preauth
-      auth       required                    ${pkgs.fprintd}/lib/security/pam_fprintd.so
-      auth       optional                    pam_permit.so
-      auth       required                    pam_env.so
-      auth       [success=ok default=1]      ${pkgs.gdm}/lib/security/pam_gdm.so
-      auth       optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so
-
-      account    include                     login
-
-      password   required                    pam_deny.so
-
-      session    include                     login
-      session    optional                    ${pkgs.gnome-keyring}/lib/security/pam_gnome_keyring.so auto_start
-    '';
-  };
-
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -128,7 +97,7 @@
   };
 
   programs.fish.enable = true;
-  programs.nix-ld.enable = true; # https://nix.dev/guides/faq#how-to-run-non-nix-executables
+  programs.nix-ld.enable = true; # # https://nix.dev/guides/faq#how-to-run-non-nix-executables
 
   environment.systemPackages = with pkgs; [ ];
 
@@ -143,14 +112,6 @@
       1234
     ];
     allowedUDPPorts = [ config.services.tailscale.port ];
-  };
-  # Allow traffic for hotspot (sharing ethernet via WLAN)
-  networking.firewall.interfaces."wlp194s0" = {
-    allowedUDPPorts = [
-      53
-      67
-    ];
-    allowedTCPPorts = [ 53 ];
   };
 
   nixpkgs.config.allowUnfreePredicate =
@@ -172,6 +133,6 @@
   };
   services.fail2ban.enable = true;
 
-  # Before changing, read https://nixos.org/nixos/options
+  #  Before changing, read https://nixos.org/nixos/options
   system.stateVersion = "25.11";
 }
