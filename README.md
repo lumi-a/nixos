@@ -1,7 +1,9 @@
 ## Structure
 
 ```
-hosts/t14/          machine-specific system config (boot, hardware, networking, locale…)
+hosts/
+  t14/              ThinkPad T14 system config (boot, hardware, networking, locale…)
+  desktop/          Desktop system config
 modules/nixos/      system-level modules (fonts, keyboard remapping)
 modules/home-manager/
   shell.nix         fish + CLI tools (ripgrep, fd, bat, starship, zoxide…)
@@ -20,16 +22,14 @@ home/lumi/          identity (username, stateVersion) + desktop app packages
 git clone https://github.com/lumi-a/nixos /etc/nixos
 ```
 
-Generate hardware config and drop it into the right place:
+Generate hardware config and drop it into the right place (replace `<hostname>` with `t14` or `desktop`):
 
 ```bash
-nixos-generate-config --show-hardware-config > /etc/nixos/hosts/t14/hardware-configuration.nix
+nixos-generate-config --show-hardware-config > /etc/nixos/hosts/<hostname>/hardware-configuration.nix
 ```
 
-Then either adapt `hosts/t14/default.nix` for the new machine, or create a new host directory following the same pattern and add a `nixosConfigurations.<hostname>` entry in `flake.nix`.
-
 ```bash
-sudo nixos-rebuild switch --flake /etc/nixos#t14
+sudo nixos-rebuild switch --flake /etc/nixos#<hostname>
 ```
 
 ### Any Linux machine with Nix (remote, fresh install, etc.)
