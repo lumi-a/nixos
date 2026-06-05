@@ -11,6 +11,7 @@
     ../../modules/home-manager/editor.nix
     ../../modules/home-manager/terminal.nix
     ../../modules/home-manager/gnome.nix
+    ../../modules/home-manager/librewolf.nix
   ];
 
   home.username = "lumi";
@@ -21,7 +22,6 @@
     vscodium
     claude-code
     koreader
-    librewolf
     brave
     signal-desktop
     prismlauncher
