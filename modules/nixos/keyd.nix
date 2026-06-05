@@ -60,7 +60,8 @@
           l = "t";
           semicolon = "n";
           apostrophe = "r";
-          backslash = "v";
+          backslash = "v"; # These two are for
+          enter = "v"; # different keyboard variants
 
           # --- Bottom row ---
           "102nd" = "j";
@@ -110,6 +111,7 @@
           semicolon = "3";
           apostrophe = "5";
           backslash = "macro(grave space)"; # ^
+          enter = "macro(grave space)"; # ^
 
           # --- Bottom row ---
           "102nd" = "6";
