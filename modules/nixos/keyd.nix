@@ -6,7 +6,8 @@
       ids = [
         "0001:0001:09b4e68d"
         "0002:000a:83b21bac"
-      ]; # narrow this via `keyd monitor`
+        "1a2c:2124:c4da6b8e"
+      ]; # narrow this via `sudo keyd monitor`
       settings = {
         global = {
           oneshot_timeout = 100;
