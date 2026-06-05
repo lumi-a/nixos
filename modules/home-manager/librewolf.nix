@@ -18,6 +18,10 @@
           url = "https://web.whatsapp.com";
         }
       ];
+      extensions = {
+        exactPermissions = true; # Don't allow extensions that request unvetted permissions
+        exhaustivePermissions = true; # All extensions' permissions must be vetted
+      };
       userChrome = ''
         * {
             font-family: Fira Sans !important;
