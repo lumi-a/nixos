@@ -4,6 +4,20 @@
     enable = true;
     # Profiles seem to require this sorta syntax.
     profiles.a1b2c3d4 = {
+      bookmarks.settings = [
+        {
+          keyword = "c";
+          url = "https://calendar.proton.me";
+        }
+        {
+          keyword = "m";
+          url = "https://mail.proton.me";
+        }
+        {
+          keyword = "wa";
+          url = "https://web.whatsapp.com";
+        }
+      ];
       userChrome = ''
         * {
             font-family: Fira Sans !important;
