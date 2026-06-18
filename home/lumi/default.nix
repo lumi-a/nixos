@@ -25,6 +25,14 @@
     brave
     signal-desktop
     prismlauncher
+    (celestegame.override {
+      withEverest = true;
+      writableDir = "/home/lumi/celeste/writable";
+      gameDir = "/home/lumi/celeste/game";
+    })
+    (olympus.override {
+      finderHints = "/home/lumi/celeste/game";
+    })
   ];
 
   programs.home-manager.enable = true;

@@ -157,6 +157,8 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "claude-code"
+      "celeste"
+      "celeste-unwrapped"
     ];
 
   services.openssh = {
