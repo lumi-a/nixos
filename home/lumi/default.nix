@@ -2,8 +2,15 @@
   config,
   pkgs,
   lib,
+  nixpkgs-unstable,
   ...
 }:
+let
+  unstable = import nixpkgs-unstable {
+    inherit (pkgs) system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ../../modules/home-manager/shell.nix
@@ -26,7 +33,10 @@
     signal-desktop
     prismlauncher
     (celestegame.override {
+      # Download Celeste from itch.io and add it to the nix-store via:
+      #   nix-store --add-fixed sha256 celeste-linux.zip
       withEverest = true;
+      everest = unstable.everest;
       writableDir = "/home/lumi/celeste/writable";
       gameDir = "/home/lumi/celeste/game";
     })
