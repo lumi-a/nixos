@@ -138,10 +138,13 @@
   };
   networking.firewall = {
     enable = true;
-    interfaces.tailscale0.allowedTCPPorts = [
-      5432
-      1234
-    ];
+    interfaces.tailscale0 = {
+      allowedTCPPorts = [
+        5432
+        1234
+      ];
+      allowedUDPPorts = [ 2240 ]; # Lan-mouse
+    };
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
   # Allow traffic for hotspot (sharing ethernet via WLAN)
