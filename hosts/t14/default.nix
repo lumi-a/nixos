@@ -143,7 +143,7 @@
         5432
         1234
       ];
-      allowedUDPPorts = [ 2240 ]; # Lan-mouse
+      allowedUDPPorts = [ 4242 ]; # Lan-mouse
     };
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
