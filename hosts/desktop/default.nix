@@ -108,7 +108,6 @@
         5432
         1234
       ];
-      allowedUDPPorts = [ 4242 ]; # Lan-Mouse
     };
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
