@@ -76,7 +76,7 @@
           rightshift = "x";
         };
 
-        # Hack
+        # Hack, `git show c814e39`
         "metalayer:M" = {
           "102nd" = "C-c"; # Copy
           z = "C-v"; # Paste
