@@ -25,7 +25,7 @@
           # --- Thumb modifier remaps ---
           leftalt = "overload(control, noop)";
           leftmeta = "overload(alt, noop)";
-          leftcontrol = "rightmeta";
+          leftcontrol = "layer(metalayer)";
           rightalt = "oneshot(symbols-layer)";
 
           tab = "enter";
@@ -74,6 +74,12 @@
           dot = "m";
           slash = "b";
           rightshift = "x";
+        };
+
+        # Hack
+        "metalayer:M" = {
+          "102nd" = "C-c"; # Copy
+          z = "C-v"; # Paste
         };
 
         shift = {
