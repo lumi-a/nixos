@@ -32,6 +32,7 @@ in
     brave
     signal-desktop
     prismlauncher
+    wl-clipboard
     (celestegame.override {
       # Download Celeste from itch.io and add it to the nix-store via:
       #   nix-store --add-fixed sha256 celeste-linux.zip

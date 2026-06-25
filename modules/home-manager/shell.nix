@@ -16,7 +16,6 @@
     git-absorb
     yazi
     typst
-    wl-clipboard
   ];
 
   home.sessionVariables = {
