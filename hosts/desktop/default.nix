@@ -22,7 +22,14 @@
   };
 
   zramSwap.enable = true;
-
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+  };
+  hardware.graphics.enable = true;
   networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
@@ -118,6 +125,9 @@
       "claude-code"
       "celeste"
       "celeste-unwrapped"
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-kernel-modules"
     ];
 
   services.openssh = {
