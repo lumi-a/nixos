@@ -4,6 +4,13 @@
     border_size = 0;
     inactive_opacity = 1;
   };
+
+  ssh_connections = [
+    {
+      host = "desktop";
+      port = 5432;
+    }
+  ];
   agent = {
     button = false;
     favorite_models = [ ];
