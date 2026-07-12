@@ -8,7 +8,10 @@
     in
     {
       devShells.x86_64-linux.default = pkgs.mkShell {
-        packages = [ pkgs.typst ];
+        packages = with pkgs; [
+          typst
+          typst-live # https://github.com/ItsEthra/typst-live
+        ];
       };
     };
 }
