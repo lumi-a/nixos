@@ -38,13 +38,17 @@
         ];
       };
       templates = {
+        # Use:
+        # nix flake init -t /etc/nixos#rust
+        # direnv allow
+        # cargo init
         rust = {
-          # Use:
-          # nix flake init -t /etc/nixos#rust
-          # direnv allow
-          # cargo init
           path = ./templates/rust;
           description = "Rust development environment";
+        };
+        typst = {
+          path = ./templates/typst;
+          description = "Typst compilation environment";
         };
       };
       nixosConfigurations.t14 = nixpkgs.lib.nixosSystem {
