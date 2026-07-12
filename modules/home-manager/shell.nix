@@ -15,7 +15,6 @@
     micro
     git-absorb
     yazi
-    typst
   ];
 
   home.sessionVariables = {
