@@ -9,6 +9,7 @@
       fira-go
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
+      libertinus
     ];
     fontconfig.defaultFonts = {
       serif = [ "FiraGO" ];
