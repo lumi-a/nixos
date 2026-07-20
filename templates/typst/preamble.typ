@@ -1,8 +1,8 @@
 #import "@preview/diagraph:0.3.3": render as graphvizRender
 
-#let font-text = ("Fira Sans", "Libertinus Serif")
+#let font-text = ("FiraGO", "Libertinus Serif")
 #let font-math = ("Libertinus Math", "New Computer Modern Math")
-#let font-monospace = ("Fira Code Arctic", "Fira Code", "DejaVu Sans Mono")
+#let font-monospace = ("FiraCode Nerd Font", "FiraCode", "DejaVu Sans Mono")
 
 #let blue = rgb("#47A"); #let Blue = body => {
   set text(blue)
