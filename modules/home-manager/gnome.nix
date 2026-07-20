@@ -4,14 +4,17 @@
   lib,
   ...
 }:
-{
-  home.packages = with pkgs; [
-    gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
-    gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready".
-    gnomeExtensions.middle-click-to-close-in-overview
-    gnomeExtensions.run-or-raise # Window switcher
-    gnomeExtensions.no-screenshot-box # Snaps on drag end, instead of having to hit the button
+let
+  gnomeShellExtensions = with pkgs.gnomeExtensions; [
+    disable-hover-on-app-window-switcher-popups-for-45 # by default, hovering any app on alt+tab, and then releasing alt+tab _focuses that app_. I frequently mess around with my mouse while alt-tabbing, so this is annoying.
+    steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready".
+    middle-click-to-close-in-overview
+    run-or-raise # Window switcher
+    no-screenshot-box # Snaps on drag end, instead of having to hit the button
   ];
+in
+{
+  home.packages = gnomeShellExtensions;
 
   services.syncthing = {
     # http://localhost:8384/
@@ -114,13 +117,7 @@
     "org/gnome/shell/extensions/run-or-raise".switch-back-when-focused = true;
 
     "org/gnome/shell" = {
-      enabled-extensions = [
-        pkgs.gnomeExtensions.disable-hover-on-app-window-switcher-popups-for-45.extensionUuid
-        pkgs.gnomeExtensions.steal-my-focus-window.extensionUuid
-        pkgs.gnomeExtensions.middle-click-to-close-in-overview.extensionUuid
-        pkgs.gnomeExtensions.run-or-raise.extensionUuid
-        pkgs.gnomeExtensions.no-screenshot-box.extensionUuid
-      ];
+      enabled-extensions = map (ext: ext.extensionUuid) gnomeShellExtensions;
     };
   };
 }
