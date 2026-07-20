@@ -10,6 +10,7 @@
     gnomeExtensions.steal-my-focus-window # Allows windows to steal focus, instead of notifying "window is ready".
     gnomeExtensions.middle-click-to-close-in-overview
     gnomeExtensions.run-or-raise # Window switcher
+    gnomeExtensions.no-screenshot-box # Snaps on drag end, instead of having to hit the button
   ];
 
   services.syncthing = {
@@ -42,7 +43,10 @@
     enable = true;
     extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
     config.common = {
-      default = [ "gnome" "gtk" ];
+      default = [
+        "gnome"
+        "gtk"
+      ];
       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
       "org.freedesktop.impl.portal.RemoteDesktop" = [ "gnome" ];
       "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
@@ -115,6 +119,7 @@
         pkgs.gnomeExtensions.steal-my-focus-window.extensionUuid
         pkgs.gnomeExtensions.middle-click-to-close-in-overview.extensionUuid
         pkgs.gnomeExtensions.run-or-raise.extensionUuid
+        pkgs.gnomeExtensions.no-screenshot-box.extensionUuid
       ];
     };
   };
