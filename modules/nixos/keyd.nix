@@ -31,6 +31,8 @@
           tab = "enter";
           capslock = "tab";
 
+          "`" = "backspace";
+
           # Copilot key, see
           # https://github.com/rvaiya/keyd/issues/825#issuecomment-3979364570
           "leftmeta+leftshift" = "overload(shift, noop)";
