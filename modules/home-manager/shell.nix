@@ -82,6 +82,16 @@
           wraps = "yazi";
         };
 
+        clip = {
+          body = ''
+            if isatty stdin
+                fish_clipboard_paste
+            else
+                fish_clipboard_copy
+            end
+          '';
+        };
+
         check-all-repos.body = ''
           set -l dirs $argv
           test (count $dirs) -eq 0; and set dirs ~ /etc/nixos
