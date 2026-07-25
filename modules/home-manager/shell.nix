@@ -164,7 +164,7 @@
       enable = true;
       git = {
         enable = true;
-        mode = "both";
+        diffToolMode = true;
       };
     };
 
