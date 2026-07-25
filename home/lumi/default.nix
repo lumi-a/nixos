@@ -34,7 +34,7 @@ in
     prismlauncher
     wl-clipboard
     clyp # Open GUI with `$ clyp`
-    (celestegame.override {
+    (unstable.celestegame.override {
       # Download Celeste from itch.io and add it to the nix-store via:
       #   nix-store --add-fixed sha256 celeste-linux.zip
       withEverest = true;
