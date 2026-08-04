@@ -31,15 +31,8 @@ sed -i \
 
 echo "Regenerating deps.json..."
 
-# Build a temporary nix file to callPackage our local package.nix,
-# since update-source-version only works inside the nixpkgs tree.
-tmpnix=$(mktemp --suffix=.nix)
-trap 'rm -f "$tmpnix"' EXIT
-cat > "$tmpnix" <<EOF
-(import <nixpkgs> {}).callPackage ${SCRIPT_DIR}/package.nix {}
-EOF
-
-fetch_deps=$(nix-build --no-out-link -f "$tmpnix" -A fetch-deps)
+fetch_deps=$(nix build --impure --no-link --print-out-paths \
+  --expr "((import <nixpkgs> {}).callPackage ${SCRIPT_DIR}/package.nix {}).fetch-deps")
 "$fetch_deps" "$SCRIPT_DIR/deps.json"
 
 echo "Done! Everest updated to build $version."
