@@ -25,7 +25,6 @@ in
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    vscodium
     claude-code
     koreader
     librewolf
