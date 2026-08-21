@@ -139,6 +139,7 @@
   };
   project_panel = {
     bold_folder_labels = true;
+    dock = "left";
     button = true;
     default_width = 240;
     entry_spacing = "comfortable";
@@ -153,7 +154,7 @@
     scrollbar = {
       show = "auto";
     };
-    starts_open = false;
+    starts_open = true;
   };
   rounded_selection = true;
   scrollbar = {
