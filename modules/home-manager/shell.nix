@@ -49,6 +49,11 @@
           setCursor = true;
         };
         gita = "git commit -a --amend";
+        gitd = {
+          expansion = "git diff";
+          setCursor = true;
+        };
+        gits = "git status --short";
         rip = "gio trash";
         zed = "zeditor";
         config = "cd /etc/nixos; zeditor /etc/nixos";
