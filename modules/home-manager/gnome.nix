@@ -40,6 +40,7 @@ in
     <Super>t,signal-desktop,signal
     <Super>i,ghostty,ghostty
     <Super>y,zeditor,zed
+    <Super>k,Minecraft,prismlauncher
   '';
 
   xdg.portal = {
