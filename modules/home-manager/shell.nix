@@ -54,6 +54,13 @@
           setCursor = true;
         };
         gits = "git status --short";
+        ruff = "uv run ruff";
+        rufle = {
+          expansion = "uv run ruff rule \"%\" | glow";
+          setCursor = true;	
+        };
+        pytest = "uv run pytest";
+        ty = "uv run ty";
         rip = "gio trash";
         zed = "zeditor";
         config = "cd /etc/nixos; zeditor /etc/nixos";
