@@ -28,6 +28,7 @@ in
     claude-code
     koreader
     librewolf
+    pinta
     brave
     signal-desktop
     prismlauncher
