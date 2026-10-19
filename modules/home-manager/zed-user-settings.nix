@@ -5,6 +5,8 @@
     inactive_opacity = 1;
   };
 
+  diff_view_style = "unified";
+
   ssh_connections = [
     {
       host = "desktop";
