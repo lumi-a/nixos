@@ -33,6 +33,12 @@
           behavior = "drop";
         };
         git.sign-on-push = true;
+        ui.diff-formatter = [
+          "${pkgs.difftastic}/bin/difft"
+          "--color=always"
+          "$left"
+          "$right"
+        ];
       };
     };
 
@@ -209,7 +215,6 @@
         enable = true;
         diffToolMode = true;
       };
-      jujutsu.enable = true;
     };
 
     bat = {
