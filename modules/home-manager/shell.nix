@@ -41,6 +41,12 @@
       };
     };
 
+    mergiraf = {
+      enable = true;
+      enableJujutsuIntegration = true;
+      enableGitIntegration = true;
+    };
+
     fish = {
       enable = true;
       interactiveShellInit = ''
