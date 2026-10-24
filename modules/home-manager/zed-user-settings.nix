@@ -5,6 +5,8 @@
     inactive_opacity = 1;
   };
 
+  helix_mode = true;
+
   diff_view_style = "unified";
 
   ssh_connections = [

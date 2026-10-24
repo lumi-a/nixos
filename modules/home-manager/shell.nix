@@ -5,6 +5,7 @@
     ripgrep
     fd
     dust
+    helix
     kalker
     sd
     nil
