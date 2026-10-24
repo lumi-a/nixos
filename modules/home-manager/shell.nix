@@ -17,7 +17,6 @@
     yazi
   ];
 
-
   programs = {
     direnv = {
       enable = true;
@@ -40,6 +39,16 @@
     helix = {
       enable = true;
       defaultEditor = true;
+      settings = {
+        editor = {
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "underline";
+          };
+          color-modes = true;
+        };
+      };
     };
 
     mergiraf = {

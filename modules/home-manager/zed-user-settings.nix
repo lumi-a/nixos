@@ -6,7 +6,8 @@
   };
 
   helix_mode = true;
-
+  vim.cursor_shape.visual = "underline";
+  
   diff_view_style = "unified";
 
   ssh_connections = [
