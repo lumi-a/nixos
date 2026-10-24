@@ -84,6 +84,7 @@
           setCursor = true;
         };
         gits = "git status --short";
+        j = "jj";
         ruff = "uv run ruff";
         rufle = {
           expansion = "uv run ruff rule \"%\" | glow";
