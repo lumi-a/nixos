@@ -5,7 +5,6 @@
     ripgrep
     fd
     dust
-    helix
     kalker
     sd
     nil
@@ -18,9 +17,6 @@
     yazi
   ];
 
-  home.sessionVariables = {
-    EDITOR = "micro";
-  };
 
   programs = {
     direnv = {
@@ -39,6 +35,11 @@
         };
         git.sign-on-push = true;
       };
+    };
+
+    helix = {
+      enable = true;
+      defaultEditor = true;
     };
 
     mergiraf = {
