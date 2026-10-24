@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.packages = with pkgs; [
     tldr
@@ -26,6 +26,19 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+    };
+
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = { inherit (config.programs.git.settings.user) name email; };
+        signing = {
+          backend = "ssh";
+          key = config.programs.git.signing.key;
+          behavior = "drop";
+        };
+        git.sign-on-push = true;
+      };
     };
 
     fish = {
@@ -58,7 +71,7 @@
         ruff = "uv run ruff";
         rufle = {
           expansion = "uv run ruff rule \"%\" | glow";
-          setCursor = true;	
+          setCursor = true;
         };
         pytest = "uv run pytest";
         ty = "uv run ty";
@@ -179,6 +192,7 @@
         enable = true;
         diffToolMode = true;
       };
+      jujutsu.enable = true;
     };
 
     bat = {
