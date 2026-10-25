@@ -17,10 +17,6 @@
     yazi
   ];
 
-  home.sessionVariables = {
-    EDITOR = "micro";
-  };
-
   programs = {
     direnv = {
       enable = true;

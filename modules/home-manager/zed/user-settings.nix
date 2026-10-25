@@ -146,7 +146,7 @@
     cursor_shape = "bar";
   };
   theme = {
-    mode = "system";
+    mode = "dark";
     light = "Lumi's Alabaster Light";
     dark = "Lumi's Alabaster Dark";
   };

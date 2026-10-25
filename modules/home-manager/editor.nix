@@ -2,6 +2,7 @@
 {
   programs.zed-editor = {
     enable = true;
+    defaultEditor = true;
     mutableUserDebug = false;
     mutableUserTasks = false;
     extensions = [
