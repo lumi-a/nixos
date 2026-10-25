@@ -1,10 +1,10 @@
 {
   "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-  "name": "Alabaster",
-  "author": "Nikita Prokopov <niki@tonsky.me>",
+  "name": "Lumi's Alabaster",
+  "author": "Lumi <https://github.com/lumi-a>",
   "themes": [
     {
-      "name": "Alabaster Dark",
+      "name": "Lumi's Alabaster Dark",
       "appearance": "dark",
       "style": {
         "border": "#3f4043ff",
@@ -196,38 +196,41 @@
         ],
         "syntax": {
           "comment": {
-            "color": "#ffee6cff"
+            "color": "#fe8dc5ff"
           },
           "string.doc": {
-            "color": "#ffee6cff"
+            "color": "#fe8dc5ff"
           },
           "string": {
-            "color": "#85cd79ff"
+            "color": "#6fda75ff"
           },
           "text.literal": {
-            "color": "#85cd79ff"
+            "color": "#6fda75ff"
           },
           "string.escape": {
-            "color": "#85cd79ff",
-            "background_color": "#203028ff"
+            "color": "#6fda75ff",
+            "background_color": "#18361aff"
           },
           "number": {
-            "color": "#d787cdff"
+            "color": "#6fda75ff"
           },
           "boolean": {
-            "color": "#d787cdff"
+            "color": "#6fda75ff"
           },
           "constant": {
-            "color": "#d787cdff"
+            "color": "#6fda75ff"
           },
           "type.class.definition": {
-            "color": "#5dafecff"
+            "color": "#6ab3fdff"
           },
           "function.definition": {
-            "color": "#5dafecff"
+            "color": "#6ab3fdff"
           },
           "function.special.definition": {
-            "color": "#5dafecff"
+            "color": "#6ab3fdff"
+          },
+          "variable.parameter": {
+            "color": "#faa453ff"
           },
           "punctuation": {
             "color": "#506070ff"
@@ -259,7 +262,7 @@
             "color": "#cececeff"
           },
           "diff.plus": {
-            "color": "#85cd79ff",
+            "color": "#6fda75ff",
             "background_color": "#203028ff"
           },
           "diff.minus": {
@@ -270,7 +273,7 @@
       }
     },
     {
-      "name": "Alabaster Light",
+      "name": "Lumi's Alabaster Light",
       "appearance": "light",
       "style": {
         "border": "#c9c9caff",
@@ -462,45 +465,41 @@
         ],
         "syntax": {
           "comment": {
-            "color": "#6e6600ff",
-            "background_color": "#fffab4ff"
+            "color": "#c9237bff"
           },
           "string.doc": {
-            "color": "#6e6600ff",
-            "background_color": "#fffab4ff"
+            "color": "#c9237bff"
           },
           "string": {
-            "color": "#315d00ff",
-            "background_color": "#ebfcd6ff"
+            "color": "#118226ff"
           },
           "text.literal": {
-            "color": "#315d00ff",
-            "background_color": "#ebfcd6ff"
+            "color": "#118226ff"
           },
           "string.escape": {
-            "color": "#315d00ff",
-            "background_color": "#d7edb0ff"
+            "color": "#118226ff",
+            "background_color": "#d0f3d0ff"
           },
           "number": {
-            "color": "#9538bbff"
+            "color": "#118226ff"
           },
           "boolean": {
-            "color": "#9538bbff"
+            "color": "#118226ff"
           },
           "constant": {
-            "color": "#9538bbff"
+            "color": "#118226ff"
           },
           "type.class.definition": {
-            "color": "#005d7fff",
-            "background_color": "#d6f2ffff"
+            "color": "#1c65c8ff"
           },
           "function.definition": {
-            "color": "#005d7fff",
-            "background_color": "#d6f2ffff"
+            "color": "#1c65c8ff"
           },
           "function.special.definition": {
-            "color": "#005d7fff",
-            "background_color": "#d6f2ffff"
+            "color": "#1c65c8ff"
+          },
+          "variable.parameter": {
+            "color": "#c0640cff"
           },
           "punctuation": {
             "color": "#a0a0a0ff"
@@ -532,7 +531,7 @@
             "color": "#000000ff"
           },
           "diff.plus": {
-            "color": "#315d00ff",
+            "color": "#118226ff",
             "background_color": "#ebfcd6ff"
           },
           "diff.minus": {

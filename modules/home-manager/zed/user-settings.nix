@@ -146,8 +146,9 @@
     cursor_shape = "bar";
   };
   theme = {
-    dark = "Ayu Dark";
-    light = "Ayu Light";
+    mode = "system";
+    light = "Lumi's Alabaster Light";
+    dark = "Lumi's Alabaster Dark";
   };
   title_bar = {
     show_branch_name = false;
