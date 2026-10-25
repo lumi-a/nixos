@@ -1,9 +1,12 @@
 { pkgs, ... }:
 {
-  active_pane_modifiers = {
-    border_size = 0;
-    inactive_opacity = 1;
-  };
+  sticky_scroll.enabled = true;
+  use_smartcase_search = true;
+  terminal.detect_venv.on.activate_script = "fish";
+
+  format_on_save = "on";
+
+  lsp.rust-analyzer.initialization_options.check.command = "clippy";
 
   diff_view_style = "unified";
 
@@ -15,8 +18,6 @@
   ];
   agent = {
     button = false;
-    favorite_models = [ ];
-    model_parameters = [ ];
   };
   agent_buffer_font_size = 18;
   agent_servers = {
@@ -25,15 +26,8 @@
       env.CLAUDE_CODE_EXECUTABLE = "${pkgs.claude-code}/bin/claude";
     };
   };
-  always_treat_brackets_as_autoclosed = false;
-  audio = {
-    "experimental.auto_microphone_volume" = true;
-    "experimental.rodio_audio" = true;
-  };
   auto_install_extensions = {
     nix = true;
-    ruff = true;
-    rust = true;
     toml = true;
     typst = true;
   };
@@ -45,7 +39,6 @@
     };
   };
   base_keymap = "VSCode";
-  bottom_dock_layout = "contained";
   buffer_font_family = "FiraCode Nerd Font";
   buffer_font_size = 20;
   buffer_line_height = "standard";
@@ -63,45 +56,27 @@
   debugger = {
     button = false;
   };
-  diagnostics = {
-    button = true;
-    include_warnings = true;
-    inline = {
-      enabled = false;
-    };
-  };
-  diagnostics_max_severity = "off";
-  features = {
-    copilot = false;
-  };
+  disable_ai = true;
   file_finder = {
     modal_max_width = "medium";
   };
   git = {
-    git_gutter = "tracked_files";
     hunk_style = "unstaged_hollow";
     inline_blame = {
       enabled = false;
-      show_commit_summary = false;
     };
     path_style = "file_path_first";
   };
   git_panel = {
     default_width = 300;
-    diff_stats = true;
-    dock = "right";
     status_style = "label_color";
-    tree_view = false;
   };
   gutter = {
     line_numbers = false;
-    runnables = true;
   };
-  hour_format = "hour24";
   hover_popover_delay = 200;
   inlay_hints = {
     enabled = true;
-    show_background = false;
   };
   inline_code_actions = false;
   languages = {
@@ -122,19 +97,9 @@
     };
   };
   load_direnv = "shell_hook";
-  lsp = {
-    nix = {
-      binary = {
-        path_lookup = true;
-      };
-    };
-  };
   middle_click_paste = false;
   minimap = {
     show = "never";
-  };
-  notification_panel = {
-    button = false;
   };
   outline_panel = {
     button = false;
@@ -142,23 +107,10 @@
   project_panel = {
     bold_folder_labels = true;
     dock = "left";
-    button = true;
-    default_width = 240;
-    entry_spacing = "comfortable";
-    folder_icons = false;
-    git_status = true;
-    hide_gitignore = false;
-    hide_root = false;
-    indent_guides = {
-      show = "always";
-    };
-    indent_size = 20;
     scrollbar = {
       show = "auto";
     };
-    starts_open = true;
   };
-  rounded_selection = true;
   scrollbar = {
     axes = {
       horizontal = false;
@@ -170,27 +122,20 @@
     regex = true;
   };
   seed_search_query_from_cursor = "never";
-  semantic_tokens = "off";
   show_signature_help_after_edits = true;
-  show_whitespaces = "selection";
-  show_wrap_guides = true;
   soft_wrap = "editor_width";
   status_bar = {
-    active_language_button = true;
     cursor_position_button = false;
   };
   tab_bar = {
-    show = true;
     show_nav_history_buttons = false;
-    show_pinned_tabs_in_separate_row = false;
-    show_tab_bar_buttons = true;
   };
   tabs = {
     activate_on_close = "neighbour";
     file_icons = true;
     git_status = true;
     show_close_button = "hidden";
-    show_diagnostics = "off";
+    show_diagnostics = "errors";
   };
   telemetry = {
     diagnostics = false;
@@ -199,21 +144,14 @@
   terminal = {
     button = false;
     cursor_shape = "bar";
-    dock = "bottom";
-    toolbar = {
-      breadcrumbs = false;
-    };
   };
   theme = {
     dark = "Ayu Dark";
     light = "Ayu Light";
-    mode = "system";
   };
   title_bar = {
-    show_branch_icon = false;
     show_branch_name = false;
-    show_menus = false;
-    show_onboarding_banner = true;
+    show_onboarding_banner = false;
     show_project_items = false;
     show_sign_in = false;
     show_user_menu = false;
@@ -228,11 +166,8 @@
   };
   ui_font_family = "FiraGO";
   ui_font_size = 18;
-  unnecessary_code_fade = 0.3;
   when_closing_with_no_tabs = "keep_window_open";
   which_key = {
     enabled = true;
   };
-  window_decorations = "client";
-  zoomed_padding = true;
 }
