@@ -145,10 +145,18 @@
     button = false;
     cursor_shape = "bar";
   };
-  theme = {
-    mode = "dark";
-    light = "Lumi's Alabaster Light";
-    dark = "Lumi's Alabaster Dark";
+  theme = "Alabaster Dark";
+  theme_overrides = {
+    "Alabaster Dark" = {
+      syntax = {
+        comment = {
+          color = "#FFBBDDFF";
+        };
+        keyword = {
+          font_weight = 800;
+        };
+      };
+    };
   };
   title_bar = {
     show_branch_name = false;

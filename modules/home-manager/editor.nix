@@ -11,6 +11,7 @@
       "rust"
       "ruff"
       "typst"
+      "alabaster-official"
     ];
 
     # You can "auto-generate" this from the current config using:
@@ -19,7 +20,6 @@
     # Remember to first set the following option to `true` before trying to edit settings in zed
     mutableUserSettings = false;
     userSettings = import ./zed/user-settings.nix { pkgs = pkgs; };
-    themes.alabaster-lumi = builtins.fromJSON (builtins.readFile ./zed/alabaster.json);
 
     # You can "auto-generate" this from the current config using:
     #   nix-instantiate --eval -E 'builtins.fromJSON (builtins.readFile /home/lumi/.config/zed/keymap.json)' | nixfmt > /etc/nixos/modules/home-manager/zed-keymap.nix
