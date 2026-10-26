@@ -73,6 +73,11 @@
   };
   gutter = {
     line_numbers = false;
+    # This just makes the gutter thinner
+    bookmarks = false;
+    runnables = false;
+    breakpoints = false;
+    folds = false;
   };
   hover_popover_delay = 200;
   inlay_hints = {
@@ -149,12 +154,8 @@
   theme_overrides = {
     "Alabaster Dark" = {
       syntax = {
-        comment = {
-          color = "#FFBBDDFF";
-        };
-        keyword = {
-          font_weight = 800;
-        };
+        comment.color = "#FFBBDDFF";
+        keyword.font_weight = 800;
       };
     };
   };
