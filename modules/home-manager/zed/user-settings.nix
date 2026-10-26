@@ -61,7 +61,6 @@
     modal_max_width = "medium";
   };
   git = {
-    hunk_style = "unstaged_hollow";
     inline_blame = {
       enabled = false;
     };
