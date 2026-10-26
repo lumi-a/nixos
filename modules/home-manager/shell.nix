@@ -33,12 +33,54 @@
           behavior = "drop";
         };
         git.sign-on-push = true;
-        ui.diff-formatter = [
-          "${pkgs.difftastic}/bin/difft"
-          "--color=always"
-          "$left"
-          "$right"
-        ];
+        ui = {
+          diff-formatter = [
+            "${pkgs.difftastic}/bin/difft"
+            "--color=always"
+            "$left"
+            "$right"
+          ];
+
+          default-command = [
+            "log"
+            "-T"
+            "oneline"
+          ];
+        };
+        templates.log = "builtin_log_compact_full_description";
+
+        template-aliases = {
+          "format_short_signature(signature)" = "coalesce(signature.name(), name_placeholder)";
+          "format_short_signature_oneline(signature)" = "format_short_signature(signature)";
+          "format_short_change_id(id)" = "id.shortest(4)";
+
+          oneline = "oneline(self)";
+          "oneline(commit)" = ''
+            if(commit.root(),
+              format_root_commit(commit),
+              label(
+                separate(" ",
+                  if(commit.current_working_copy(), "working_copy"),
+                  if(commit.immutable(), "immutable", "mutable"),
+                  if(commit.conflict(), "conflicted"),
+                ),
+                separate(" ",
+                  format_short_change_id_with_change_offset(commit),
+                  if(!commit.mine(), format_short_signature_oneline(commit.author())),
+                  commit.bookmarks(),
+                  commit.tags(),
+                  commit.working_copies(),
+                  format_commit_labels(commit),
+                  if(commit.empty(), empty_commit_marker),
+                  if(commit.description(),
+                    commit.description().first_line(),
+                    label(if(commit.empty(), "empty"), description_placeholder),
+                  ),
+                ) ++ "\n",
+              )
+            )
+          '';
+        };
       };
     };
 
