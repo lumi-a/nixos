@@ -128,6 +128,7 @@
         rip = "gio trash";
         zed = "zeditor";
         config = "cd /etc/nixos; zeditor /etc/nixos";
+        jpush = "jj bookmark move main --to @- && jj git push -b main";
       };
       shellAliases.l = "lll";
       functions = {
